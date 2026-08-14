@@ -1,454 +1,894 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Eventum — fitness a wellness v Mladé Boleslavi</title>
-<meta name="description" content="Čtyři sály, skupinové lekce a wellness v OC Dubce. Členství od 2 000 Kč měsíčně, jednorázový vstup 160 Kč.">
-<link rel="icon" href="img/logo-mark.png">
+<title>Eventum — Centrum pohybu a regenerace</title>
 <style>
-/* ============================================================
-   MOBILE FIRST — базовые стили = телефон.
-   Ширины подключаются вверх: 700px (планшет) и 1000px (десктоп).
-   ============================================================ */
+
 :root{
-  --bg:#FAF9F7; --bg-alt:#F2EFEA; --ink:#2C2C2C; --ink-soft:#5F5B55;
-  --accent:#F58220; --accent-hover:#E07010; --accent-light:#F8A560;
-  --dark:#1C1C1C; --dark-2:#262626; --line:#E2DDD6;
+  --bg:#FAF9F7; --bg-alt:#F1EEE9; --ink:#2C2C2C; --ink-soft:#6A665F; --ink-faint:#918C84;
+  --accent:#F58220; --accent-dark:#D96D12; --accent-soft:#FCEEDF;
+  --dark:#1A1A1A; --dark-2:#242424; --line:#E0DBD3; --line-dark:rgba(255,255,255,.22);
   --serif:Georgia,"Times New Roman",serif;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --r:14px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --r:6px;                    
+  --r-btn:6px;                
+  --pad:clamp(3.5rem,6vw,6rem);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);font-size:16px;line-height:1.65;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.18}
-h1{font-size:2.1rem;letter-spacing:-.01em}
-h2{font-size:1.65rem;margin-bottom:12px}
-h3{font-size:1.1rem}
-p{color:var(--ink-soft)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.18;margin:0 0 .45em;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,1.6rem + 3.4vw,4rem)}
+h2{font-size:clamp(1.85rem,1.4rem + 2vw,2.9rem)}
+h3{font-size:1.3rem;font-weight:400}
+p{margin:0 0 1.1em}
+a{color:inherit}
+img{max-width:100%;display:block;height:auto}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.sec{padding:var(--pad) 0}
+.sec--alt{background:var(--bg-alt)}
+.sec--dark{background:var(--dark);color:#F2EFEA}
+.sec--dark h2,.sec--dark h3{color:#fff}
+.sec--dark p{color:#B8B3AB}
+.lead{color:var(--ink-soft);max-width:62ch;font-size:1.06rem}
+.sec--dark .lead{color:#B8B3AB}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
 
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.sec{padding:52px 0}
-.eyebrow{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
-.lead{font-size:1.02rem;max-width:58ch}
+.kicker{font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.sec--dark .kicker{color:var(--accent)}
 
-/* --- кнопки: 48px минимум под палец --- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;
-  min-height:52px;padding:14px 26px;border-radius:999px;border:1px solid transparent;
-  font-family:var(--sans);font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:active{transform:scale(.98)}
-.btn-primary:hover{background:var(--accent-hover)}
-.btn-dark{background:var(--ink);color:#fff}
-.btn-dark:hover{background:#000}
-.btn-line{border-color:currentColor;background:transparent}
-.btn-full{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:16px 40px;border-radius:var(--r-btn);border:1px solid var(--accent);background:var(--accent);color:#fff;
+  font:400 13.6px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;text-decoration:none;
+  cursor:pointer;transition:.18s}
+.btn:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff}
+.sec--dark .btn--ghost,.hero .btn--ghost{color:#fff;border-color:#fff}
+.sec--dark .btn--ghost:hover,.hero .btn--ghost:hover{background:#fff;color:var(--ink)}
+.btn--wide{width:100%}
+.btn--sm{padding:12px 26px;font-size:12px}
+.link{font:400 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
 
-/* --- прототип-полоса --- */
-.protobar{background:var(--ink);color:#E8E4DE;font-size:.8rem;text-align:center;padding:9px 16px;line-height:1.4}
-.protobar b{color:var(--accent-light)}
+.grid{display:grid;gap:22px}
+@media(min-width:720px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
 
-/* --- шапка: только логотип и одна цель --- */
-header{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;padding:6px 0}
-.brand img{width:34px;height:34px;border-radius:8px}
-.brand span{font-family:var(--serif);font-size:1.1rem;letter-spacing:.05em}
-.navlinks{display:none}
-.nav .btn{min-height:44px;padding:10px 20px;font-size:.92rem}
+.protobar{background:var(--dark);color:#CFCAC3;font:400 12px/1.4 var(--sans);letter-spacing:.06em;
+  padding:10px 16px;text-align:center;position:relative;z-index:60}
+.protobar b{color:var(--accent)}
+.protobar button{margin-left:12px;background:transparent;color:#fff;border:1px solid var(--line-dark);
+  padding:5px 14px;font:400 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:0}
+.protobar button:hover{background:#fff;color:var(--dark)}
 
-/* --- hero --- */
-.hero{position:relative;color:#fff;overflow:hidden;background:#1a1a1a}
-.hero picture,.hero img.bg{position:absolute;inset:0;width:100%;height:100%}
-.hero img.bg{object-fit:cover;filter:brightness(.46)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,.35),rgba(15,15,15,.9))}
-.hero .wrap{position:relative;z-index:2;padding-top:56px;padding-bottom:40px}
-.hero .eyebrow{color:var(--accent-light)}
-.hero h1{margin-bottom:14px}
-.hero p{color:rgba(255,255,255,.9);font-size:1.05rem;margin-bottom:26px;max-width:34ch}
-.hero p b{color:#fff;font-weight:600;white-space:nowrap}
-.hero .btn{width:100%;margin-bottom:10px}
-.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.2);font-size:.92rem;color:rgba(255,255,255,.85)}
-.facts b{color:#fff;font-weight:600}
+header{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.97);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:300;font-size:17px;
+  letter-spacing:.13em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.logo img{width:32px;height:32px}
+.nav{display:none;gap:26px}
+.nav a{font:400 12px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+  padding-bottom:3px;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+@media(min-width:980px){.nav{display:flex}}
 
-/* --- балички: главный экран --- */
-#balicky{background:var(--bg-alt)}
-.pkgs{display:grid;gap:14px;margin-top:26px}
-.pkg{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;position:relative}
-.pkg.best{border:2px solid var(--accent);box-shadow:0 10px 30px rgba(245,130,32,.14)}
-.tag{display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
-.pkg h3{font-family:var(--sans);font-size:.95rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
-.amount{font-family:var(--serif);font-size:2.6rem;line-height:1;display:flex;align-items:baseline;gap:8px}
-.amount small{font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--ink-soft)}
-.sub{font-size:.95rem;color:var(--ink-soft);margin:6px 0 18px}
-.pkg ul{list-style:none;margin-bottom:22px}
-.pkg li{position:relative;padding-left:26px;margin-bottom:9px;font-size:.98rem;color:var(--ink-soft)}
-.pkg li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent)}
+.hero{position:relative;color:#fff;background:var(--dark);min-height:82vh;display:flex;align-items:center}
+.hero__bg{position:absolute;inset:0;overflow:hidden}
+.hero__bg img{width:100%;height:100%;object-fit:cover}
 
-/* --- комбинированный пакет: предложение, не четвёртый равноправный выбор --- */
-.combo{margin-top:14px;border:1.5px dashed var(--accent-light);border-radius:var(--r);
-  background:linear-gradient(180deg,#fff,#FFF6EC);padding:22px}
-.combo .tag{background:#fff;color:var(--accent);border:1px dashed var(--accent)}
-.combo h3{font-family:var(--serif);font-size:1.2rem;text-transform:none;letter-spacing:0;color:var(--ink);margin-bottom:8px}
-.combo p{font-size:.98rem}
-.combo-price{font-family:var(--serif);font-size:1.35rem;color:var(--ink);margin-top:14px}
-.combo-price small{display:block;font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);margin-top:2px}
+.hero__bg:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,20,20,.50) 0%,rgba(20,20,20,.30) 45%,rgba(20,20,20,.62) 100%)}
 
-/* --- тренеры: на телефоне лента со снапом, на десктопе сетка --- */
-.team{display:flex;gap:12px;margin-top:22px;overflow-x:auto;scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}
-.team::-webkit-scrollbar{display:none}
-.person{flex:0 0 58%;scroll-snap-align:start}
-.person img{border-radius:var(--r);width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:12px}
-.person b{display:block;font-size:1rem;font-weight:600}
-.person span{display:block;font-size:.92rem;color:var(--ink-soft)}
+.hero h1,.hero .lead{text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.hero__in{position:relative;width:100%;padding:calc(var(--pad) + 1rem) 0}
+.hero h1{color:#fff;margin-bottom:.4em;max-width:15ch;margin-left:auto;margin-right:auto}
+.hero .lead{color:#DDD8D0;margin:0 auto 2.4rem;max-width:52ch}
 
-details{margin-top:18px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
-summary{cursor:pointer;list-style:none;padding:18px 22px;min-height:56px;display:flex;align-items:center;
-  justify-content:space-between;font-weight:600;font-size:1rem}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.5rem;color:var(--accent);line-height:1}
-details[open] summary::after{content:"–"}
-.rows{padding:0 22px 20px}
-.row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line);font-size:.98rem}
-.row span{color:var(--ink-soft)}
-.row b{white-space:nowrap;font-weight:600}
-.hint{font-size:.95rem;color:var(--ink-soft);margin-top:18px}
-.hint b{color:var(--ink)}
+.fork{display:grid;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);max-width:840px;margin:0 auto}
+@media(min-width:760px){.fork{grid-template-columns:1fr 1fr}}
+.fork__card{display:block;text-decoration:none;padding:32px 28px;background:rgba(20,20,20,.42);
+  transition:.22s;text-align:left}
+.fork__card:hover{background:rgba(245,130,32,.16)}
+.fork__card h3{color:#fff;margin-bottom:8px;font-size:1.45rem}
+.fork__card p{color:#C9C4BC;font-size:15px;margin:0 0 18px;line-height:1.55}
+.fork__go{font:400 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 30px;margin-top:34px;
+  font:400 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#A8A39B}
+.facts b{color:#fff;font-weight:400}
 
-/* --- что получите --- */
-.inc{display:grid;gap:26px;margin-top:24px}
-.inc img{border-radius:var(--r);width:100%}
-.inc ul{list-style:none}
-.inc li{position:relative;padding-left:24px;margin-bottom:12px;font-size:1rem;color:var(--ink-soft)}
-.inc li::before{content:"";position:absolute;left:0;top:.6em;width:12px;height:2px;background:var(--accent)}
-.inc li b{color:var(--ink);font-weight:600}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 24px}
+.rule:before,.rule:after{content:"";height:1px;background:var(--line);flex:1;max-width:180px}
+.rule i{width:5px;height:5px;background:var(--accent);display:block;transform:rotate(45deg)}
 
-/* --- wellness тизер --- */
-.tease{background:var(--dark);color:#EFECE7}
-.tease h2{color:#fff}
-.tease p{color:#B5AFA6}
-.tease .eyebrow{color:var(--accent-light)}
-.tease img{border-radius:var(--r);margin-bottom:24px}
-.tease .price-from{font-family:var(--serif);font-size:1.5rem;color:#fff;margin:18px 0 22px}
-.tease .price-from small{font-family:var(--sans);font-size:.95rem;color:#B5AFA6}
+.price{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:34px 28px;display:flex;flex-direction:column}
+.price--best{border-color:var(--accent);border-width:2px}
+.tag{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;
+  font:400 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;white-space:nowrap}
+.price__num{font-family:var(--serif);font-weight:300;font-size:2.6rem;line-height:1;margin:10px 0 4px}
+.price__per{color:var(--ink-faint);font-size:13px;letter-spacing:.06em;margin-bottom:22px}
+.price ul{list-style:none;margin:0 0 26px;padding:0;font-size:15px}
+.price li{padding:10px 0;border-top:1px solid var(--line);color:var(--ink-soft)}
+.price li:last-child{border-bottom:1px solid var(--line)}
+.price .btn{margin-top:auto}
+.combo{margin-top:22px;background:var(--dark);color:#fff;border-radius:var(--r);padding:34px 28px;
+  display:grid;gap:20px;align-items:center}
+@media(min-width:820px){.combo{grid-template-columns:1fr auto}}
+.combo h3{color:#fff;margin-bottom:6px}
+.combo p{color:#B8B3AB;margin:0;font-size:15px}
+details.full{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--r)}
+details.full summary{cursor:pointer;padding:20px 26px;list-style:none;
+  font:400 12px var(--sans);letter-spacing:.15em;text-transform:uppercase}
+details.full summary::-webkit-details-marker{display:none}
+details.full summary:after{content:"+";float:right;color:var(--accent);font-size:17px;line-height:1}
+details.full[open] summary:after{content:"−"}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl td{padding:13px 26px;border-top:1px solid var(--line);color:var(--ink-soft)}
+.tbl td:last-child{text-align:right;color:var(--ink);white-space:nowrap}
 
-/* --- контакт --- */
-.info{display:grid;gap:26px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px}
-.card h3{font-family:var(--sans);font-size:.85rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
-.card p,.card address{font-style:normal;font-size:1rem;color:var(--ink-soft);line-height:1.7}
-.card a{color:var(--ink);text-decoration:none;display:inline-block;padding:8px 0;min-height:44px;line-height:1.6;border-bottom:1px solid var(--line)}
-.hours{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:.98rem;color:var(--ink-soft)}
-.hours:first-of-type{border-top:0}
-.hours b{color:var(--ink);font-weight:600;white-space:nowrap}
+.occ{display:grid;grid-template-columns:repeat(16,1fr);gap:5px;align-items:end;height:150px;margin:26px 0 10px}
+.occ i{display:block;border-radius:0}
+.occ i.low{background:#A9C4A2}.occ i.mid{background:var(--accent)}.occ i.high{background:#C0503A}
+.occ-x{display:grid;grid-template-columns:repeat(16,1fr);gap:5px;
+  font:400 10px var(--sans);letter-spacing:.04em;color:var(--ink-faint);text-align:center}
+.legend{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px;
+  font:400 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.legend span{display:inline-flex;align-items:center;gap:9px}
+.dot{width:10px;height:10px;display:inline-block}
 
-form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px}
-label{display:block;font-size:.9rem;font-weight:600;color:var(--ink);margin:16px 0 7px}
-input,select{width:100%;min-height:52px;padding:14px 15px;border:1px solid var(--line);border-radius:10px;
-  font:inherit;font-size:1rem;background:var(--bg);color:var(--ink)}
-input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
-.consent{display:flex;gap:12px;align-items:flex-start;margin:20px 0 4px;font-size:.92rem;color:var(--ink-soft)}
-.consent input{width:24px;height:24px;min-height:24px;flex:0 0 24px;margin-top:2px}
-.consent label{margin:0;font-weight:400;font-size:.92rem;color:var(--ink-soft);line-height:1.5}
-form .btn{margin-top:20px}
-.formnote{font-size:.9rem;color:var(--ink-soft);margin-top:14px;text-align:center}
+.klas{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:26px;transition:.18s}
+.klas:hover{border-color:var(--accent)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.meta span{font:400 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+  border:1px solid var(--line);padding:5px 10px}
+.klas h3{margin-bottom:6px}
+.klas p{margin:0 0 18px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
 
-/* --- липкая кнопка на телефоне --- */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  background:rgba(250,249,247,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);
-  transform:translateY(120%);transition:transform .3s ease}
-.sticky.show{transform:none}
-.sticky .btn{width:100%}
+.ico{width:46px;height:46px;margin-bottom:20px;color:var(--accent);
+  stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.klas:hover .ico{color:var(--accent-dark)}
 
-/* --- футер --- */
-footer{background:var(--dark);color:#9C968D;padding:40px 0 96px;font-size:.95rem}
-footer a{color:#C9C3BA;text-decoration:none;display:inline-block;padding:9px 0;min-height:44px;line-height:1.5}
-footer a:hover{color:var(--accent-light)}
-.fnav{display:flex;flex-wrap:wrap;gap:0 24px;margin:16px 0 22px}
-.fbot{border-top:1px solid #333;padding-top:18px;font-size:.88rem;line-height:1.6}
+.map{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--r);
+  min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:22px;text-align:center;position:relative;overflow:hidden}
+.map__load{background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;
+  gap:7px;padding:8px 16px;font-family:inherit}
+.map__load svg{width:34px;height:34px;fill:none;stroke:var(--accent);stroke-width:1.5;margin-bottom:4px}
+.map__load b{font:300 1.25rem var(--serif);color:var(--ink)}
+.map__load span{font:400 14px var(--sans);color:var(--ink-soft)}
+.map__load em{margin-top:10px;font:400 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-style:normal;border-bottom:1px solid currentColor;padding-bottom:3px}
+.map__note{font:400 12px/1.45 var(--sans);color:var(--ink-faint);max-width:34ch;margin:16px 0 0}
+.map iframe{width:100%;height:100%;min-height:280px;border:0;display:block;border-radius:var(--r)}
+.map--on{padding:0;min-height:280px}
 
-/* ============================================================
-   700px+ — планшет
-   ============================================================ */
-@media (min-width:700px){
-  .sec{padding:72px 0}
-  h1{font-size:3rem}
-  h2{font-size:2.1rem}
-  .hero .wrap{padding-top:96px;padding-bottom:64px}
-  .hero p{max-width:44ch;font-size:1.12rem}
-  .hero .btn{width:auto;margin-right:10px}
-  .pkgs{grid-template-columns:repeat(3,1fr);gap:18px}
-  .inc{grid-template-columns:1fr 1fr;align-items:center;gap:40px}
-  .combo{display:flex;align-items:center;gap:28px;padding:26px 30px}
-  .combo>div:first-of-type{flex:1}
-  .combo-price{margin-top:0;text-align:right;white-space:nowrap}
-  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;overflow:visible}
-  .person{flex:none}
-  .info{grid-template-columns:1fr 1fr}
-  .tease .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-  .tease img{margin-bottom:0}
-  .sticky{display:none}
-  footer{padding-bottom:40px}
-}
+.appcard{display:flex;flex-direction:column;align-items:center;gap:26px;padding:12px}
+.phone{width:150px;height:264px;border:1.6px solid rgba(255,255,255,.42);border-radius:20px;
+  position:relative;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.phone__ear{position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:36px;height:3px;border-radius:2px;background:rgba(255,255,255,.42)}
+.phone__screen{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;padding:0 14px}
+.phone__screen .mark{width:60px;height:44px;fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.phone__screen b{font:300 13px/1 var(--serif);letter-spacing:.24em;color:#fff}
+.phone__screen i{font:400 9px/1 var(--sans);letter-spacing:.1em;color:#9C978F;font-style:normal}
+.stores{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%}
 
-/* ============================================================
-   1000px+ — десктоп
-   ============================================================ */
-@media (min-width:1000px){
-  .sec{padding:96px 0}
-  h1{font-size:3.6rem}
-  .wrap{padding:0 32px}
-  .navlinks{display:flex;gap:30px;list-style:none}
-  .navlinks a{text-decoration:none;color:var(--ink-soft);font-size:.98rem;padding:8px 0}
-  .navlinks a:hover{color:var(--accent)}
-  .nav{min-height:74px}
-  .pkgs{gap:22px}
-  .hero .wrap{padding-top:130px;padding-bottom:80px}
-}
+.store2{display:inline-flex;align-items:center;gap:11px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.42);border-radius:var(--r-btn);padding:9px 18px;
+  background:transparent;transition:.18s}
+.store2:hover{background:#fff;border-color:#fff}
+.store2 svg{width:22px;height:22px;fill:#fff;flex:0 0 auto}
+.store2:hover svg{fill:var(--dark)}
+.store2 span{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+.store2 em{font:400 9px var(--sans);letter-spacing:.11em;text-transform:uppercase;color:#B8B3AB;font-style:normal}
+.store2 b{font:400 15px var(--sans);color:#fff;letter-spacing:.01em}
+.store2:hover em{color:#5F5B55}
+.store2:hover b{color:var(--dark)}
+@media(min-width:520px){.appcard{flex-direction:row;justify-content:center;gap:34px}
+  .stores{flex-direction:column;width:auto}}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.person img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);margin-bottom:16px;filter:grayscale(.15)}
+.person h3{margin-bottom:3px}
+.person p{font:400 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:0}
+.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px}
+.rev__q{font-family:var(--serif);font-weight:300;font-size:1.14rem;line-height:1.55;margin:0 0 22px}
+.rev__who{display:flex;align-items:center;gap:13px;padding-top:20px;border-top:1px solid var(--line)}
+.rev__who img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.rev__who b{display:block;font-weight:400;font-size:15px}
+.rev__who em{font-style:normal;font:400 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+.split{display:grid;gap:44px}
+@media(min-width:900px){.split{grid-template-columns:1.02fr .98fr;align-items:center}}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal img{aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+@media(min-width:760px){.gal--4{grid-template-columns:repeat(4,1fr)}}
+
+.gal--big{gap:16px}
+.gal--big img{aspect-ratio:3/2}
+.split--wide{gap:52px}
+@media(min-width:900px){.split--wide{grid-template-columns:.82fr 1.18fr}}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:22px}
+.steps li{counter-increment:s;position:relative;padding-left:54px}
+.steps li:before{content:"0" counter(s);position:absolute;left:0;top:0;
+  font:400 13px var(--sans);letter-spacing:.1em;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
+.steps b{display:block;font-weight:600;margin-bottom:3px}
+.steps span{color:var(--ink-soft);font-size:15px}
+.stores{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.store{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-dark);color:#fff;
+  text-decoration:none;padding:13px 22px;font:400 12px var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.store:hover{background:#fff;color:var(--dark)}
+.field{width:100%;padding:15px 16px;border:1px solid var(--line);border-radius:var(--r-btn);
+  font:400 16px var(--sans);background:#fff;margin-bottom:12px;font-family:inherit}
+.field:focus{outline:none;border-color:var(--accent)}
+.msgr{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.msgr a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);
+  background:#fff;padding:12px 20px;font:400 12px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.msgr a:hover{border-color:var(--accent);color:var(--accent)}
+.map{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--r);height:240px;
+  display:flex;align-items:center;justify-content:center;color:var(--ink-faint);text-align:center;padding:24px;
+  font:400 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:13px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+.hours td:last-child{text-align:right;color:var(--ink)}
+footer{background:var(--dark);color:#8F8A82;padding:var(--pad) 0 100px;font-size:15px}
+footer a{color:#DDD8D0;text-decoration:none}
+footer a:hover{color:var(--accent)}
+footer h4{color:#fff;font:400 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;margin:0 0 18px}
+.foot{display:grid;gap:38px}
+@media(min-width:820px){.foot{grid-template-columns:1.5fr 1fr 1fr}}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(250,249,247,.98);
+  backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:10px;
+  transform:translateY(120%);transition:.28s}
+.sticky.on{transform:none}
+@media(min-width:980px){.sticky{display:none}}
+
+.lang{display:flex;align-items:center;gap:2px;font:400 12px var(--sans);letter-spacing:.14em}
+.lang button{background:none;border:0;padding:5px 8px;cursor:pointer;color:var(--ink-faint);
+  font:inherit;text-transform:uppercase;border-bottom:1px solid transparent}
+.lang button.on{color:var(--ink);border-bottom-color:var(--accent)}
+.lang s{color:var(--line);text-decoration:none}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+
+@media(min-width:1000px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery button{padding:0;border:0;background:none;cursor:pointer;display:block;overflow:hidden;border-radius:var(--r)}
+
+.gallery button[hidden]{display:none}
+.gallery img{aspect-ratio:3/2;object-fit:cover;width:100%;transition:transform .4s}
+.gallery button:hover img{transform:scale(1.04)}
+
+.gal-more{margin-top:28px;text-align:center}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(16,16,16,.94);display:none;
+  align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;object-fit:contain;border-radius:2px}
+.lb__x{position:absolute;top:18px;right:22px;background:none;border:1px solid var(--line-dark);color:#fff;
+  width:42px;height:42px;cursor:pointer;font-size:20px;line-height:1}
+.lb__nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--line-dark);
+  color:#fff;width:46px;height:46px;cursor:pointer;font-size:20px}
+.lb__nav.prev{left:18px}.lb__nav.next{right:18px}
+.lb__n{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#A8A39B;
+  font:400 12px var(--sans);letter-spacing:.14em}
 </style>
 </head>
 <body>
 
-<div class="protobar">Prototyp v0.2 · <b>není veřejný web</b> · ceny převzaty z eventumgym.cz, čekají na potvrzení</div>
+<div class="protobar">
+  Prototyp <b>v0.5</b> · není veřejný web
+</div>
 
 <header>
-  <div class="wrap nav">
-    <a href="#" class="brand"><img src="img/logo-mark.png" width="34" height="34" alt=""><span>EVENTUM</span></a>
-    <ul class="navlinks">
-      <li><a href="#balicky">Balíčky</a></li>
-      <li><a href="#wellness">Wellness</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-    <a href="#balicky" class="btn btn-primary">Balíčky</a>
+  <div class="wrap hdr">
+    <a class="logo" href="#"><img src="img/logo-mark.png" alt="">Eventum</a>
+    <nav class="nav">
+      <a href="#balicky" data-en="Pricing">Ceník</a>
+      <a href="#navstevnost" data-en="Quiet hours">Kdy je volno</a>
+      <a href="#lekce" data-en="Classes">Lekce</a>
+      <a href="#galerie" data-en="Gallery">Galerie</a>
+      <a href="#wellness" data-en="Wellness">Wellness</a>
+      <a href="#kontakt" data-en="Contact">Kontakt</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="lang">
+        <button class="on" data-lang="cs">CZ</button><s>|</s><button data-lang="en">EN</button>
+      </div>
+      <a class="btn btn--sm" href="#balicky" data-en="Choose a plan">Vybrat balíček</a>
+    </div>
   </div>
 </header>
 
 <section class="hero">
-  <picture>
-    <source media="(max-width:699px)" srcset="img/hero-sm.jpg">
-    <img src="img/hero.jpg" class="bg" width="1800" height="1199" alt="Fitness sál Eventum" fetchpriority="high">
-  </picture>
-  <div class="wrap">
-    <p class="eyebrow">Mladá Boleslav · OC Dubce</p>
-    <h1>Trénujte v&nbsp;Eventum</h1>
-    <p>Čtyři sály, skupinové lekce a wellness pod jednou střechou. Členství od <b>2 000 Kč</b> měsíčně, jednorázový vstup <b>160 Kč</b>.</p>
-    <a href="#balicky" class="btn btn-primary">Vybrat balíček</a>
-    <a href="tel:+420739622294" class="btn btn-line">Zavolat</a>
+  <div class="hero__bg"><img src="img/hero-hall.jpg" alt="" fetchpriority="high"></div>
+  <div class="wrap hero__in center">
+    <p class="kicker">Mladá Boleslav · OC Dubce</p>
+    <h1>Místo, kam se chcete vracet</h1>
+    <p class="lead">Čtyři sály, skupinové lekce a wellness pod jednou střechou.
+      Lidé, kteří vás znají jménem — ne jen řady strojů.</p>
+
+    <div class="fork">
+      <a class="fork__card" href="#balicky">
+        <h3>Trénovat</h3>
+        <p>Posilovna, skupinové lekce, funkční trénink.<br>Členství od 2 000 Kč měsíčně.</p>
+        <span class="fork__go">Vybrat balíček →</span>
+      </a>
+      <a class="fork__card" href="#wellness">
+        <h3>Regenerovat</h3>
+        <p>Tři sauny, koupele, masáže a solárium.<br>Vstup od 240 Kč za hodinu.</p>
+        <span class="fork__go">Prohlédnout wellness →</span>
+      </a>
+    </div>
+
     <div class="facts">
-      <span><b>4</b> sály</span>
-      <span><b>3</b> sauny</span>
-      <span>Od <b>6:00</b></span>
-      <span><b>MultiSport</b></span>
+      <span><b>4</b> sály</span><span><b>3</b> sauny</span><span>Otevřeno od <b>6:00</b></span><span><b>MultiSport</b></span>
     </div>
   </div>
 </section>
 
 <section class="sec" id="balicky">
   <div class="wrap">
-    <p class="eyebrow">Balíčky</p>
-    <h2>Vyberte si a začněte dnes</h2>
-    <p class="lead">Vstup 1× denně do všech sálů. Bez vstupních poplatků, bez výpovědní lhůty.</p>
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker">Ceník</p>
+      <h2>Vyberte si a začněte dnes</h2>
+      <p class="lead">Bez vstupních poplatků. Bez výpovědní lhůty.</p>
+    </div>
 
-    <div class="pkgs">
-      <div class="pkg">
+    <div class="grid g3">
+      <div class="price">
         <h3>Jednorázový vstup</h3>
-        <div class="amount">160 <small>Kč</small></div>
-        <p class="sub">na zkoušku, bez závazku</p>
-        <ul>
-          <li>Všechny 4 sály</li>
-          <li>Poradenství při první návštěvě</li>
-        </ul>
-        <a href="#kontakt" class="btn btn-dark btn-full">Koupit vstup</a>
+        <div class="price__num">160 Kč</div>
+        <div class="price__per">za jeden vstup</div>
+        <ul><li>Posilovna i kardio zóna</li><li>Šatna a sprchy</li><li>Bez závazku</li></ul>
+        <a class="btn btn--ghost btn--wide" href="#">Koupit vstup</a>
       </div>
-
-      <div class="pkg best">
+      <div class="price price--best">
         <span class="tag">Doporučujeme</span>
         <h3>Měsíční členství</h3>
-        <div class="amount">2 000 <small>Kč / měsíc</small></div>
-        <p class="sub">neomezeně, vstup 1× denně</p>
-        <ul>
-          <li>Všechny 4 sály</li>
-          <li>Rezervace lekcí online</li>
-          <li>Fitness bar a trenéři na místě</li>
-        </ul>
-        <a href="#kontakt" class="btn btn-primary btn-full">Stát se členem</a>
+        <div class="price__num">2 000 Kč</div>
+        <div class="price__per">měsíčně, bez závazku</div>
+        <ul><li>Neomezený vstup</li><li>Skupinové lekce</li><li>Poradenství trenéra</li></ul>
+        <a class="btn btn--wide" href="#">Koupit členství</a>
       </div>
-
-      <div class="pkg">
+      <div class="price">
         <h3>Roční členství</h3>
-        <div class="amount">15 500 <small>Kč / rok</small></div>
-        <p class="sub">1 292 Kč měsíčně — nejnižší cena</p>
-        <ul>
-          <li>Vše z měsíčního členství</li>
-          <li>Cena zamčená na celý rok</li>
-        </ul>
-        <a href="#kontakt" class="btn btn-dark btn-full">Koupit na rok</a>
+        <div class="price__num">15 500 Kč</div>
+        <div class="price__per">1 292 Kč měsíčně — nejnižší cena</div>
+        <ul><li>Vše z měsíčního</li><li>Přednostní rezervace</li><li>Možnost zmrazit členství</li></ul>
+        <a class="btn btn--ghost btn--wide" href="#">Koupit na rok</a>
       </div>
     </div>
 
     <div class="combo">
       <div>
-        <span class="tag">Návrh</span>
         <h3>Fitness + Wellness v jednom</h3>
-        <p>Členství v posilovně a vstupy do wellness na jedné kartě. Dnes to jsou dva samostatné nákupy.</p>
+        <p>Posilovna, lekce a neomezený vstup do saun. Jedna karta, jedna platba.</p>
       </div>
-      <div class="combo-price">cena k doplnění<small>návrh k projednání</small></div>
+      <a class="btn" href="#">Cena k doplnění</a>
     </div>
 
-    <details>
+    <details class="full">
       <summary>Zobrazit celý ceník</summary>
-      <div class="rows">
-        <div class="row"><span>10 vstupů · platnost 2 měsíce</span><b>1 500 Kč</b></div>
-        <div class="row"><span>20 vstupů · platnost 3 měsíce</span><b>2 900 Kč</b></div>
-        <div class="row"><span>30 vstupů · platnost 5 měsíců</span><b>4 200 Kč</b></div>
-        <div class="row"><span>Členství na 3 měsíce</span><b>4 400 Kč</b></div>
-        <div class="row"><span>Členství na 6 měsíců</span><b>8 300 Kč</b></div>
-        <div class="row"><span>Skupinová lekce · jednotlivě</span><b>180 Kč</b></div>
-        <div class="row"><span>Výživové poradenství · konzultace 30 min</span><b>200 Kč</b></div>
-        <div class="row"><span>Jídelníček na míru</span><b>3 000 Kč</b></div>
-        <div class="row"><span>Dárkový poukaz</span><b>na přání</b></div>
-      </div>
+      <table class="tbl">
+        <tr><td>Jednorázový vstup</td><td>160 Kč</td></tr>
+        <tr><td>10 vstupů</td><td>1 500 Kč</td></tr>
+        <tr><td>Měsíční členství</td><td>2 000 Kč</td></tr>
+        <tr><td>3 měsíce</td><td>4 400 Kč</td></tr>
+        <tr><td>6 měsíců</td><td>8 300 Kč</td></tr>
+        <tr><td>Roční členství</td><td>15 500 Kč</td></tr>
+        <tr><td>Wellness — 1 hodina</td><td>240 Kč</td></tr>
+        <tr><td>MultiSport — doplatek</td><td>140 / 210 / 320 Kč</td></tr>
+      </table>
     </details>
+  </div>
+</section>
 
-    <p class="hint">Platit lze i kartou <b>MultiSport</b>. Wellness se kupuje zvlášť — <a href="#wellness" style="color:var(--accent)">ceny a rezervace</a>.</p>
+<div class="rule"><i></i></div>
+
+<section class="sec" id="navstevnost">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:10px">
+      <p class="kicker">Kdy je volno</p>
+      <h2>Přijďte, když je klid</h2>
+      <p class="lead">Nemusíte čekat na stroj. Takhle vypadá běžný všední den.</p>
+    </div>
+    <div class="occ">
+      <i class="low" style="height:22%"></i><i class="mid" style="height:52%"></i><i class="mid" style="height:60%"></i>
+      <i class="low" style="height:34%"></i><i class="low" style="height:26%"></i><i class="low" style="height:30%"></i>
+      <i class="low" style="height:38%"></i><i class="mid" style="height:48%"></i><i class="mid" style="height:56%"></i>
+      <i class="mid" style="height:62%"></i><i class="high" style="height:88%"></i><i class="high" style="height:100%"></i>
+      <i class="high" style="height:92%"></i><i class="mid" style="height:64%"></i><i class="low" style="height:40%"></i>
+      <i class="low" style="height:24%"></i>
+    </div>
+    <div class="occ-x">
+      <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+      <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+    </div>
+    <div class="legend">
+      <span><i class="dot" style="background:#A9C4A2"></i> Volno</span>
+      <span><i class="dot" style="background:var(--accent)"></i> Běžný provoz</span>
+      <span><i class="dot" style="background:#C0503A"></i> Plno</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="prvni">
+  <div class="wrap split split--wide">
+    <div>
+      <p class="kicker">Poprvé u nás</p>
+      <h2>Nebojte se přijít poprvé</h2>
+      <p class="lead">Nikdo vás nebude přesvědčovat ani prodávat. Přijďte se podívat, i bez cvičení.</p>
+      <ol class="steps">
+        <li><b>Vezměte si obuv a ručník</b><span>Zámek na skříňku dostanete na recepci.</span></li>
+        <li><b>Přijďte kdykoli v otevírací době</b><span>Není třeba se objednávat předem.</span></li>
+        <li><b>Projdeme to spolu</b><span>Ukážeme sály, šatny a jak funguje rezervace lekcí.</span></li>
+        <li><b>Rozhodnete se sami</b><span>Členství můžete koupit hned, nebo si to rozmyslet.</span></li>
+      </ol>
+      <p style="margin-top:34px"><a class="btn" href="#kontakt">Domluvit návštěvu</a></p>
+    </div>
+    <div class="gal gal--big">
+      <img src="img/reception.jpg" alt="Recepce" loading="lazy" width="900" height="600">
+      <img src="img/hall-a.jpg" alt="Hlavní sál" loading="lazy" width="900" height="600">
+      <img src="img/hall-b.jpg" alt="Zóna činek" loading="lazy" width="900" height="600">
+      <img src="img/person-mat.jpg" alt="Trénink" loading="lazy" width="900" height="600">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lekce">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker">Skupinové lekce</p>
+      <h2>Šest lekcí, každá na něco jiného</h2>
+    </div>
+    <div class="grid g3">
+      <a class="klas" href="/pilates/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><circle cx="15" cy="9" r="3.2"/><path d="M11 34c1.5-6 4-9 8-10.5"/><path d="M19 23.5c5-1.5 9 .5 12 4.5"/><path d="M31 28c2 2.5 3 5 3.5 8"/><path d="M8 38h30"/><circle cx="20.5" cy="22" r="1"/><circle cx="25" cy="24" r="1"/><circle cx="29" cy="26.5" r="1"/></svg><div class="meta"><span>50 min</span><span>Všechny úrovně</span></div>
+        <h3>Pilates</h3><p>Hluboký stabilizační systém, záda, držení těla.</p><span class="link">Rozvrh</span></a>
+      <a class="klas" href="/jumping/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><ellipse cx="23" cy="31" rx="14" ry="5"/><path d="M11 33l-2 7M35 33l2 7"/><path d="M23 24V9"/><path d="M17.5 14.5L23 9l5.5 5.5"/><path d="M14 20.5l3-3M32 20.5l-3-3"/></svg><div class="meta"><span>45 min</span><span>Kardio</span></div>
+        <h3>Jumping</h3><p>Trampolíny, šetrné ke kloubům, vysoký výdej.</p><span class="link">Rozvrh</span></a>
+      <a class="klas" href="/trx-fullbody/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><path d="M9 8h28"/><path d="M17 8v13a6 6 0 0 0 12 0V8"/><path d="M17 21l-3 8a5 5 0 0 0 10 0"/><path d="M29 21l3 8a5 5 0 0 1-10 0"/><circle cx="23" cy="5.5" r="1.4"/></svg><div class="meta"><span>55 min</span><span>Síla</span></div>
+        <h3>TRX Fullbody</h3><p>Vlastní váha, závěsný systém, celé tělo.</p><span class="link">Rozvrh</span></a>
+      <a class="klas" href="/hiit-workout/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><path d="M7 38V26M14 38V16M28 38V16M35 38V26"/><path d="M23 6l-5 13h5l-3 12 8-15h-5l4-10z"/></svg><div class="meta"><span>30 min</span><span>Pokročilí</span></div>
+        <h3>HIIT Workout</h3><p>Krátké intervaly na maximum, spalování.</p><span class="link">Rozvrh</span></a>
+      <a class="klas" href="/rbn-workout/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><path d="M12 15c8-6 12 12 20 6"/><path d="M12 27c8-6 12 12 20 6"/><rect x="6" y="12" width="5" height="18" rx="2"/><rect x="33" y="12" width="5" height="18" rx="2"/></svg><div class="meta"><span>50 min</span><span>Mobilita</span></div>
+        <h3>RBN Workout</h3><p>Odporové gumy, síla a rozsah pohybu.</p><span class="link">Rozvrh</span></a>
+      <a class="klas" href="/totalbody-kruhac/"><svg class="ico" viewBox="0 0 46 46" aria-hidden="true"><path d="M23 7a16 16 0 1 1-11.3 4.7"/><path d="M11.7 6.5v5.2h5.2"/><circle cx="23" cy="7" r="2.2"/><circle cx="37" cy="26" r="2.2"/><circle cx="23" cy="39" r="2.2"/><circle cx="9" cy="26" r="2.2"/></svg><div class="meta"><span>60 min</span><span>Skupina</span></div>
+        <h3>TotalBody Kruháč</h3><p>Kruhový trénink, celé tělo, ve skupině.</p><span class="link">Rozvrh</span></a>
+    </div>
+    <p class="center" style="margin-top:38px"><a class="link" href="/our-classes/">Celý rozvrh lekcí</a></p>
+  </div>
+</section>
+
+<div class="rule"><i></i></div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker">Prostory</p>
+      <h2>Čtyři sály, každý na něco jiného</h2>
+    </div>
+    <div class="gal gal--big" style="grid-template-columns:repeat(2,1fr)">
+      <img src="img/hall-d.jpg" alt="Funkční zóna" loading="lazy" width="900" height="600">
+      <img src="img/hall-c.jpg" alt="Sál pro lekce" loading="lazy" width="900" height="600">
+      <img src="img/hall-e.jpg" alt="Vybavení" loading="lazy" width="900" height="600">
+      <img src="img/hall-b.jpg" alt="Zóna činek" loading="lazy" width="900" height="600">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="galerie">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker" data-i18n>Fotogalerie</p>
+      <h2 data-i18n>Podívejte se dovnitř</h2>
+      <p class="lead" data-i18n>Čtyři sály, wellness a zázemí. Fotografie z klubu, bez retuše.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <div class="gal-more"><button class="btn btn--ghost" id="galMore">Zobrazit celou galerii · 35 fotografií</button></div>
+  </div>
+</section>
+
+<div class="lb" id="lb">
+  <button class="lb__x" id="lbX">✕</button>
+  <button class="lb__nav prev" id="lbPrev">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb__nav next" id="lbNext">›</button>
+  <div class="lb__n" id="lbN"></div>
+</div>
+
+<section class="sec sec--alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker">Kdo tu je</p>
+      <h2>Lidé, kteří vás znají jménem</h2>
+    </div>
+    <div class="grid g3">
+      <div class="person"><img src="img/coach-ales.png" alt="Aleš" loading="lazy" width="500" height="500"><h3>Aleš</h3><p>Silový trénink · technika</p></div>
+      <div class="person"><img src="img/coach-romana.png" alt="Romana" loading="lazy" width="500" height="500"><h3>Romana</h3><p>Skupinové lekce · pilates</p></div>
+      <div class="person"><img src="img/coach-tana.png" alt="Táňa" loading="lazy" width="500" height="500"><h3>Táňa</h3><p>Kondice · začátečníci</p></div>
+    </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <p class="eyebrow">Co je v ceně</p>
-    <h2>Čtyři sály, každý na něco jiného</h2>
-    <div class="inc">
-      <ul>
-        <li><b>Dva silové sály</b> — činky, stroje, lavice, HammerStrength a LifeFitness</li>
-        <li><b>Sál pro box, kalisteniku a strečink</b></li>
-        <li><b>Šest skupinových programů</b> — Pilates, Jumping, TotalBody, HIIT, TRX, RBN</li>
-        <li><b>Fitness bar</b>, klimatizace, parkování zdarma</li>
-        <li><b>Trenéři na place</b> a výživové poradenství</li>
-      </ul>
-      <picture>
-        <source media="(max-width:699px)" srcset="img/gym-1-sm.jpg">
-        <img src="img/gym-1.jpg" width="1200" height="800" loading="lazy" alt="Silový sál Eventum">
-      </picture>
+    <div class="center" style="margin-bottom:44px">
+      <p class="kicker">Co říkají členové</p>
+      <h2>Proč sem chodí</h2>
+    </div>
+    <div class="grid g3">
+      <div class="rev"><p class="rev__q">„Chodím ráno a mám sál skoro pro sebe. Nikdo mě nehoní, nikdo mi nic neprodává.“</p>
+        <div class="rev__who"><img src="img/team-2-sm.jpg" alt=""><span><b>Jana K.</b><em>Členka 2 roky</em></span></div></div>
+      <div class="rev"><p class="rev__q">„Po operaci kolena jsem se bál. Aleš mi ukázal, co můžu a co zatím ne.“</p>
+        <div class="rev__who"><img src="img/team-1-sm.jpg" alt=""><span><b>Petr M.</b><em>Člen 1 rok</em></span></div></div>
+      <div class="rev"><p class="rev__q">„Sauna po tréninku je důvod, proč jsem sem přešla od konkurence.“</p>
+        <div class="rev__who"><img src="img/team-3-sm.jpg" alt=""><span><b>Lucie N.</b><em>Členka 3 roky</em></span></div></div>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow">Trenéři</p>
-    <h2>Kdo vás povede</h2>
-    <div class="team">
-      <figure class="person">
-        <img src="img/team-1-sm.jpg" width="420" height="420" loading="lazy" alt="Tetiana Dubanovská">
-        <b>Tetiana Dubanovská</b><span>Majitelka · osobní trenérka</span>
-      </figure>
-      <figure class="person">
-        <img src="img/team-2-sm.jpg" width="420" height="420" loading="lazy" alt="Aleš Rangl">
-        <b>Aleš Rangl</b><span>Trenér · silový trénink</span>
-      </figure>
-      <figure class="person">
-        <img src="img/team-3-sm.jpg" width="420" height="420" loading="lazy" alt="Romana Ranglová">
-        <b>Romana Ranglová</b><span>Trenérka · skupinové lekce</span>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec tease" id="wellness">
-  <div class="wrap">
-    <picture>
-      <source media="(max-width:699px)" srcset="img/wellness-1-sm.jpg">
-      <img src="img/wellness-1.jpg" width="1200" height="900" loading="lazy" alt="Finská sauna">
-    </picture>
+<section class="sec sec--dark">
+  <div class="wrap split">
     <div>
-      <p class="eyebrow">Wellness</p>
+      <p class="kicker">Dárkový poukaz</p>
+      <h2>Darujte místo věcí</h2>
+      <p class="lead">Poukaz na členství, wellness nebo libovolnou částku.
+        Bez registrace, dva kliky, PDF přijde na e-mail hned.</p>
+      <p style="margin-top:12px"><a class="btn" href="#">Koupit poukaz</a></p>
+    </div>
+    <div class="gal gal--big" style="grid-template-columns:repeat(2,1fr)">
+      <img src="img/massage.png" alt="Masáž" loading="lazy" width="700" height="700" style="aspect-ratio:1/1">
+      <img src="img/hall-a.jpg" alt="Hlavní sál" loading="lazy" width="700" height="700" style="aspect-ratio:1/1">
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">MultiSport</p>
+      <h2>Kartu přijímáme</h2>
+      <p class="lead">Přijďte s kartou MultiSport nebo Medicover Sport.
+        Doplatek podle typu vstupu. Kartu stačí ukázat na recepci.</p>
+      <p><a class="link" href="/multisport-karta/">Podmínky a doplatky</a></p>
+    </div>
+    <div class="card">
+      <table class="hours">
+        <tr><td>Fitness</td><td>140 Kč</td></tr>
+        <tr><td>Fitness + wellness</td><td>210 Kč</td></tr>
+        <tr><td>Wellness samostatně</td><td>320 Kč</td></tr>
+      </table>
+      <p style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:18px 0 0">
+        Ceny čekají na potvrzení klubem</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"><i></i></div>
+
+<section class="sec sec--dark">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">Aplikace</p>
+      <h2>Rezervace v telefonu</h2>
+      <p class="lead">Rezervace lekcí, vstup do klubu QR kódem, přehled členství a plateb.
+        Aplikace je součástí členství.</p>
+      <div class="stores"><a class="store" href="#">App Store</a><a class="store" href="#">Google Play</a></div>
+    </div>
+    <div class="appcard">
+      <div class="phone">
+        <span class="phone__ear"></span>
+        <div class="phone__screen">
+          <svg viewBox="0 0 64 46" class="mark" aria-hidden="true">
+            <path d="M8 25C8 14.5 16.5 6 27 6s19 8.5 19 19"/>
+            <path d="M46 25c0 10.5-8.5 19-19 19-7.6 0-14.2-4.5-17.2-11"/>
+            <path d="M17 25h24"/>
+          </svg>
+          <b>EVENTUM</b>
+          <i>cíl je na dosah</i>
+        </div>
+      </div>
+      <div class="stores">
+        <a class="store2" href="#" aria-label="App Store">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.8c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.7-1.3-.1-2.5.8-3.2.8-.7 0-1.6-.8-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.3.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7 1.3 0 1.6.7 2.7.7 1.1 0 1.8-1 2.5-2 .8-1.2 1.1-2.3 1.1-2.4-.1 0-2.1-.8-2.1-3.2zM14.3 6.3c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg>
+          <span><em>Stáhnout v</em><b>App Store</b></span>
+        </a>
+        <a class="store2" href="#" aria-label="Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 2.6c-.3.3-.4.7-.4 1.3v16.2c0 .6.1 1 .4 1.3l.1.1 9.1-9.1v-.2L4.3 2.5l-.1.1z" opacity=".7"/><path d="M16.5 15.5l-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.7 2z"/><path d="M16.6 15.4L13.4 12.2 4.2 21.4c.3.4.9.4 1.5.1l10.9-6.1"/><path d="M16.6 8.6L5.7 2.5c-.6-.3-1.2-.3-1.5.1l9.2 9.2 3.2-3.2z" opacity=".85"/></svg>
+          <span><em>Dostupné na</em><b>Google Play</b></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="wellness">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">Wellness</p>
       <h2>Sauny a regenerace</h2>
-      <p>Finská, BIO a parní sauna, ochlazovací bazének, bylinné koupele, masáže a kolagenové solárium. Vlastní otevírací doba, samostatná rezervace.</p>
-      <p class="price-from">od 240 Kč <small>/ hodina</small></p>
-      <a href="#" class="btn btn-primary">Otevřít wellness</a>
+      <p class="lead">Tři sauny, koupele, masáže a solárium. Otevírací doba se liší od fitness.
+        Vstup od 240 Kč za hodinu.</p>
+      <p style="margin-top:12px"><a class="btn btn--ghost" href="#">Přejít na wellness</a></p>
+    </div>
+    <div class="gal">
+      <img src="img/wellness-1.jpg" alt="" loading="lazy" width="600" height="450">
+      <img src="img/w-bazen.jpg" alt="" loading="lazy" width="600" height="450">
     </div>
   </div>
 </section>
 
 <section class="sec" id="kontakt">
-  <div class="wrap">
-    <p class="eyebrow">Kontakt</p>
-    <h2>Přijďte se podívat</h2>
-    <div class="info">
-      <div>
-        <div class="card">
-          <h3>Kde nás najdete</h3>
-          <address>ul. Mileny Hážové 1544, OC Dubce<br>293 01 Mladá Boleslav<br>Parkování zdarma u vchodu</address>
-          <p><a href="tel:+420739622294">+420 739 622 294</a></p>
-          <p><a href="mailto:eventumgym@gmail.com">eventumgym@gmail.com</a></p>
-        </div>
-        <div class="card" style="margin-top:14px">
-          <h3>Otevírací doba</h3>
-          <div class="hours"><span>Fitness po–pá</span><b>6:00 – 22:00</b></div>
-          <div class="hours"><span>Fitness so–ne</span><b>8:00 – 21:00</b></div>
-          <div class="hours"><span>Wellness po–pá</span><b>16:00 – 21:00</b></div>
-          <div class="hours"><span>Wellness so–ne</span><b>14:00 – 20:30</b></div>
-        </div>
-      </div>
-
-      <form onsubmit="event.preventDefault();this.querySelector('.formnote').textContent='Prototyp — formulář zatím neodesílá.';">
-        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:6px">Nezávazná poptávka</h3>
-        <p style="font-size:.98rem">Ozveme se do 24 hodin.</p>
-        <label for="f1">Jméno</label>
-        <input id="f1" name="jmeno" type="text" autocomplete="name" required>
-        <label for="f2">Telefon</label>
-        <input id="f2" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required>
-        <label for="f3">Co vás zajímá</label>
-        <select id="f3" name="zajem">
-          <option>Měsíční členství</option>
-          <option>Roční členství</option>
-          <option>Permanentka na vstupy</option>
-          <option>Wellness</option>
-          <option>Skupinové lekce</option>
-        </select>
-        <div class="consent">
-          <input id="f4" type="checkbox" required>
-          <label for="f4">Souhlasím se zpracováním osobních údajů.</label>
-        </div>
-        <button class="btn btn-primary btn-full" type="submit">Odeslat</button>
-        <p class="formnote">Nebo rovnou volejte +420 739 622 294.</p>
+  <div class="wrap split">
+    <div>
+      <p class="kicker">Kontakt</p>
+      <h2>Přijďte se podívat</h2>
+      <p class="lead">Napište nebo zavolejte. Odpovídáme během dne.</p>
+      <form onsubmit="return false" style="margin-top:26px">
+        <input class="field" placeholder="Jméno">
+        <input class="field" type="email" placeholder="E-mail nebo telefon">
+        <textarea class="field" rows="3" placeholder="Na co se chcete zeptat?"></textarea>
+        <label style="display:flex;gap:10px;font-size:14px;color:var(--ink-soft);margin:6px 0 18px">
+          <input type="checkbox"> Souhlasím se zpracováním osobních údajů</label>
+        <button class="btn btn--wide" type="submit">Odeslat</button>
       </form>
+      <div class="msgr"><a href="#">WhatsApp</a><a href="#">Messenger</a><a href="#">Zavolat</a></div>
+    </div>
+    <div>
+      <div class="map" id="map">
+        <button class="map__load" id="mapLoad">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.6"/></svg>
+          <b>Mileny Hážové 1544</b>
+          <span>293 01 Mladá Boleslav · OC Dubce</span>
+          <em>Zobrazit mapu</em>
+        </button>
+        <p class="map__note">Mapa se načte až po kliknutí — Google jinak ukládá cookies bez vašeho souhlasu.</p>
+      </div>
+      <table class="hours" style="margin-top:24px">
+        <tr><td>Pondělí — pátek</td><td>6:00 — 22:00</td></tr>
+        <tr><td>Sobota</td><td>8:00 — 20:00</td></tr>
+        <tr><td>Neděle</td><td>8:00 — 20:00</td></tr>
+        <tr><td>Wellness</td><td>jiná doba</td></tr>
+      </table>
+      <p style="font-size:14px;color:var(--ink-soft);margin-top:20px">
+        Mileny Hážové 1544, OC Dubce<br>293 01 Mladá Boleslav</p>
     </div>
   </div>
 </section>
 
+<section class="sec sec--alt">
+  <div class="wrap center">
+    <p class="kicker">Návrh nad rámec</p>
+    <h2>Přiveďte kamaráda</h2>
+    <p class="lead">Vy i kamarád dostanete měsíc se slevou. 83 % členů klub doporučuje —
+      stačí jim dát důvod to udělat.</p>
+  </div>
+</section>
+
 <footer>
-  <div class="wrap">
-    <strong style="color:#fff;font-family:var(--serif);font-size:1.15rem;letter-spacing:.05em">EVENTUM</strong>
-    <div class="fnav">
-      <a href="#balicky">Balíčky</a>
-      <a href="#wellness">Wellness</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#">Obchodní podmínky</a>
-      <a href="#">Ochrana údajů</a>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#" style="color:#fff;margin-bottom:20px"><img src="img/logo-mark.png" alt="">Eventum</a>
+      <p style="margin:0">Mileny Hážové 1544, OC Dubce<br>293 01 Mladá Boleslav</p>
     </div>
-    <div class="fbot">© 2026 Eventum · Mladá Boleslav<br>Prototyp pro schválení — nezveřejňovat.</div>
+    <div><h4>Web</h4><p style="margin:0;line-height:2.1">
+      <a href="#balicky">Ceník</a><br><a href="/our-classes/">Lekce</a><br>
+      <a href="/multisport-karta/">MultiSport</a><br><a href="#wellness">Wellness</a></p></div>
+    <div><h4>Právní</h4><p style="margin:0;line-height:2.1">
+      <a href="/obchodni-podminky/">Obchodní podmínky</a><br>
+      <a href="#">Ochrana osobních údajů</a><br>
+      <a href="/prohlaseni-o-cookies/">Cookies</a></p></div>
   </div>
 </footer>
 
 <div class="sticky" id="sticky">
-  <a href="#balicky" class="btn btn-primary">Vybrat balíček — od 160 Kč</a>
+  <a class="btn btn--wide" href="#balicky">Vybrat balíček</a>
+  <a class="btn btn--ghost" href="#kontakt" style="flex:0 0 auto">Napsat</a>
 </div>
 
 <script>
-var bar = document.getElementById('sticky'), hero = document.querySelector('.hero');
-new IntersectionObserver(function(e){ bar.classList.toggle('show', !e[0].isIntersecting); },
-  {rootMargin:'-70px 0px 0px 0px'}).observe(hero);
+
+const hero = document.querySelector('.hero'), sticky = document.getElementById('sticky');
+new IntersectionObserver(([e]) => sticky.classList.toggle('on', !e.isIntersecting), {threshold:0}).observe(hero);
+
+const SHOTS = [
+  'EG2B4307-2','EG2B4299-2','EG2B4308-2','EG2B4317-2','EG2B4337','EG2B4345','EG2B4347','EG2B4350',
+  'EG2B4354','EG2B4356','EG2B4363','EG2B4372','EG2B4378','EG2B4392','EG2B4419','EG2B4429',
+  'EG2B4432','EG2B4434','EG2B4448','EG2B4454','EG2B4479','EG2B4502','EG2B4510','EG2B4525',
+  'EG2B4537','EG2B4550','EG2B4563','EG2B4578','EG2B4582','EG2B4588','EG2B4597',
+  'reception','sauna-1','sauna-2','person-1'
+];
+const FIRST = 8;
+const gal = document.getElementById('gallery'), moreBtn = document.getElementById('galMore');
+
+SHOTS.forEach((n, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.dataset.i = i;
+  if (i >= FIRST) b.hidden = true;
+  b.innerHTML = `<img src="gal/${n}.jpg" alt="" loading="lazy" width="600" height="400">`;
+  gal.appendChild(b);
+});
+
+moreBtn.addEventListener('click', () => show(0));
+
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbN = document.getElementById('lbN');
+let cur = 0;
+const show = i => {
+  cur = (i + SHOTS.length) % SHOTS.length;
+  lbImg.src = `gal/${SHOTS[cur]}.jpg`;
+  lbN.textContent = `${cur + 1} / ${SHOTS.length}`;
+  lb.classList.add('on');
+};
+gal.addEventListener('click', e => { const b = e.target.closest('button'); if (b) show(+b.dataset.i); });
+document.getElementById('lbX').onclick = () => lb.classList.remove('on');
+document.getElementById('lbPrev').onclick = () => show(cur - 1);
+document.getElementById('lbNext').onclick = () => show(cur + 1);
+lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('on'); });
+let tx = 0;
+lb.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 45) show(cur + (dx < 0 ? 1 : -1));
+}, {passive:true});
+
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') lb.classList.remove('on');
+  if (e.key === 'ArrowLeft') show(cur - 1);
+  if (e.key === 'ArrowRight') show(cur + 1);
+});
+
+const mapBox = document.getElementById('map'), mapBtn = document.getElementById('mapLoad');
+mapBtn?.addEventListener('click', () => {
+  const q = encodeURIComponent('Fitness centrum Eventum, Mileny Hážové 1544, 293 01 Mladá Boleslav');
+  const f = document.createElement('iframe');
+  f.src = `https://maps.google.com/maps?q=${q}&t=m&z=15&output=embed&iwloc=near`;
+  f.loading = 'lazy';
+  f.referrerPolicy = 'no-referrer-when-downgrade';
+  f.title = 'Mapa — Eventum, Mileny Hážové 1544, Mladá Boleslav';
+  mapBox.innerHTML = '';
+  mapBox.classList.add('map--on');
+  mapBox.appendChild(f);
+});
+
+const EN = {
+  "Prototyp":"Prototype", "není veřejný web":"not a public site", 
+  "Vybrat balíček":"Choose a plan", "Napsat":"Message us",
+  "Mladá Boleslav · OC Dubce":"Mladá Boleslav · OC Dubce",
+  "Místo, kam se chcete vracet":"A place you will want to come back to",
+  "Čtyři sály, skupinové lekce a wellness pod jednou střechou. Lidé, kteří vás znají jménem — ne jen řady strojů.":
+    "Four studios, group classes and wellness under one roof. People who know your name — not just rows of machines.",
+  "Trénovat":"Train", "Regenerovat":"Recover",
+  "Posilovna, skupinové lekce, funkční trénink.":"Gym floor, group classes, functional training.",
+  "Členství od 2 000 Kč měsíčně.":"Membership from CZK 2,000 a month.",
+  "Tři sauny, koupele, masáže a solárium.":"Three saunas, baths, massages and a solarium.",
+  "Vstup od 240 Kč za hodinu.":"Entry from CZK 240 an hour.",
+  "Vybrat balíček →":"Choose a plan →", "Prohlédnout wellness →":"See wellness →",
+  "sály":"studios", "sauny":"saunas", "Otevřeno od":"Open from",
+  "Ceník":"Pricing", "Vyberte si a začněte dnes":"Pick a plan and start today",
+  "Bez vstupních poplatků. Bez výpovědní lhůty.":"No joining fee. No notice period.",
+  "Jednorázový vstup":"Single entry", "za jeden vstup":"per visit",
+  "Posilovna i kardio zóna":"Gym floor and cardio zone", "Šatna a sprchy":"Changing room and showers",
+  "Bez závazku":"No commitment", "Koupit vstup":"Buy a visit",
+  "Doporučujeme":"Recommended", "Měsíční členství":"Monthly membership",
+  "měsíčně, bez závazku":"per month, no commitment", "Neomezený vstup":"Unlimited access",
+  "Skupinové lekce":"Group classes", "Poradenství trenéra":"Trainer guidance",
+  "Koupit členství":"Buy membership", "Roční členství":"Annual membership",
+  "1 292 Kč měsíčně — nejnižší cena":"CZK 1,292 a month — our lowest rate",
+  "Vše z měsíčního":"Everything in monthly", "Přednostní rezervace":"Priority booking",
+  "Možnost zmrazit členství":"Option to freeze membership", "Koupit na rok":"Buy annual",
+  "Fitness + Wellness v jednom":"Fitness + Wellness together",
+  "Posilovna, lekce a neomezený vstup do saun. Jedna karta, jedna platba.":
+    "Gym, classes and unlimited sauna access. One card, one payment.",
+  "Cena k doplnění":"Price to be confirmed", "Zobrazit celý ceník":"Show the full price list",
+  "10 vstupů":"10 visits", "3 měsíce":"3 months", "6 měsíců":"6 months",
+  "Wellness — 1 hodina":"Wellness — 1 hour", "MultiSport — doplatek":"MultiSport — surcharge",
+  "Kdy je volno":"Quiet hours", "Přijďte, když je klid":"Come when it is quiet",
+  "Nemusíte čekat na stroj. Takhle vypadá běžný všední den.":
+    "No waiting for a machine. This is what a normal weekday looks like.",
+  "Volno":"Quiet", "Běžný provoz":"Normal", "Plno":"Busy",
+  "Poprvé u nás":"Your first visit", "Nebojte se přijít poprvé":"Coming for the first time is easy",
+  "Nikdo vás nebude přesvědčovat ani prodávat. Přijďte se podívat, i bez cvičení.":
+    "Nobody will pressure you or sell to you. Come and look around, even without training.",
+  "Vezměte si obuv a ručník":"Bring shoes and a towel",
+  "Zámek na skříňku dostanete na recepci.":"You get a locker key at reception.",
+  "Přijďte kdykoli v otevírací době":"Come any time we are open",
+  "Není třeba se objednávat předem.":"No need to book in advance.",
+  "Projdeme to spolu":"We will show you around",
+  "Ukážeme sály, šatny a jak funguje rezervace lekcí.":"The studios, the changing rooms and how class booking works.",
+  "Rozhodnete se sami":"You decide for yourself",
+  "Členství můžete koupit hned, nebo si to rozmyslet.":"Buy a membership right away, or take your time.",
+  "Domluvit návštěvu":"Arrange a visit",
+  "Šest lekcí, každá na něco jiného":"Six classes, each for something different",
+  "Všechny úrovně":"All levels", "Kardio":"Cardio", "Síla":"Strength", "Pokročilí":"Advanced",
+  "Mobilita":"Mobility", "Skupina":"Group", "Rozvrh":"Schedule", "Celý rozvrh lekcí":"Full class schedule",
+  "Hluboký stabilizační systém, záda, držení těla.":"Deep core, back and posture.",
+  "Trampolíny, šetrné ke kloubům, vysoký výdej.":"Trampolines, joint-friendly, high burn.",
+  "Vlastní váha, závěsný systém, celé tělo.":"Bodyweight, suspension straps, full body.",
+  "Krátké intervaly na maximum, spalování.":"Short all-out intervals, fat burning.",
+  "Odporové gumy, síla a rozsah pohybu.":"Resistance bands, strength and range of motion.",
+  "Kruhový trénink, celé tělo, ve skupině.":"Circuit training, full body, in a group.",
+  "Prostory":"Our spaces", "Čtyři sály, každý na něco jiného":"Four studios, each for something different",
+  "Fotogalerie":"Gallery", "Galerie":"Gallery", "Podívejte se dovnitř":"Take a look inside",
+  "Čtyři sály, wellness a zázemí. Fotografie z klubu, bez retuše.":
+    "Four studios, wellness and facilities. Photos from the club, unretouched.",
+  "Zobrazit celou galerii · 35 fotografií":"View the full gallery · 35 photos",
+  "Kdo tu je":"Who you will meet", "Lidé, kteří vás znají jménem":"People who know your name",
+  "Silový trénink · technika":"Strength training · technique",
+  "Skupinové lekce · pilates":"Group classes · pilates",
+  "Kondice · začátečníci":"Conditioning · beginners",
+  "Co říkají členové":"What members say", "Proč sem chodí":"Why they keep coming back",
+  "„Chodím ráno a mám sál skoro pro sebe. Nikdo mě nehoní, nikdo mi nic neprodává.“":
+    "“I come in the morning and have the place almost to myself. Nobody rushes me, nobody sells me anything.”",
+  "„Po operaci kolena jsem se bál. Aleš mi ukázal, co můžu a co zatím ne.“":
+    "“After knee surgery I was nervous. Aleš showed me what I could do and what to leave for later.”",
+  "„Sauna po tréninku je důvod, proč jsem sem přešla od konkurence.“":
+    "“The sauna after training is why I switched here from another gym.”",
+  "Členka 2 roky":"Member 2 years", "Člen 1 rok":"Member 1 year", "Členka 3 roky":"Member 3 years",
+  "Dárkový poukaz":"Gift voucher", "Darujte místo věcí":"Give an experience, not an object",
+  "Poukaz na členství, wellness nebo libovolnou částku. Bez registrace, dva kliky, PDF přijde na e-mail hned.":
+    "A voucher for membership, wellness or any amount. No sign-up, two clicks, PDF arrives by e-mail straight away.",
+  "Koupit poukaz":"Buy a voucher",
+  "Kartu přijímáme":"We accept the card",
+  "Přijďte s kartou MultiSport nebo Medicover Sport. Doplatek podle typu vstupu. Kartu stačí ukázat na recepci.":
+    "Come with a MultiSport or Medicover Sport card. A surcharge applies depending on the entry type. Just show the card at reception.",
+  "Podmínky a doplatky":"Terms and surcharges", "Fitness + wellness":"Fitness + wellness",
+  "Wellness samostatně":"Wellness only", "Ceny čekají na potvrzení klubem":"Prices pending club confirmation",
+  "Aplikace":"App", "Stáhnout v":"Download on the", "Dostupné na":"Get it on", "Rezervace v telefonu":"Book from your phone",
+  "Rezervace lekcí, vstup do klubu QR kódem, přehled členství a plateb. Aplikace je součástí členství.":
+    "Book classes, enter the club with a QR code, see your membership and payments. The app is included in your membership.",
+  "Sauny a regenerace":"Saunas and recovery",
+  "Tři sauny, koupele, masáže a solárium. Otevírací doba se liší od fitness. Vstup od 240 Kč za hodinu.":
+    "Three saunas, baths, massages and a solarium. Opening hours differ from the gym. Entry from CZK 240 an hour.",
+  "Přejít na wellness":"Go to wellness",
+  "Kontakt":"Contact", "Přijďte se podívat":"Come and see us",
+  "Napište nebo zavolejte. Odpovídáme během dne.":"Write or call. We reply the same day.",
+  "Jméno":"Name", "E-mail nebo telefon":"E-mail or phone",
+  "Na co se chcete zeptat?":"What would you like to ask?",
+  "Souhlasím se zpracováním osobních údajů":"I agree to the processing of my personal data",
+  "Odeslat":"Send", "Zavolat":"Call us",
+  
+  "Zobrazit mapu":"Show map",
+  "Mapa se načte až po kliknutí — Google jinak ukládá cookies bez vašeho souhlasu.":"The map loads only after you click — otherwise Google sets cookies without your consent.",
+  "Pondělí — pátek":"Monday — Friday", "Sobota":"Saturday", "Neděle":"Sunday",
+  "jiná doba":"different hours",
+  "Návrh nad rámec":"Beyond the contract", "Přiveďte kamaráda":"Bring a friend",
+  "Vy i kamarád dostanete měsíc se slevou. 83 % členů klub doporučuje — stačí jim dát důvod to udělat.":
+    "You and your friend both get a discounted month. 83 % of members recommend the club — they just need a reason to do it.",
+  "Web":"Site", "Lekce":"Classes", "Právní":"Legal",
+  "Obchodní podmínky":"Terms and conditions", "Ochrana osobních údajů":"Privacy policy", "Cookies":"Cookies"
+};
+
+const CS = Object.fromEntries(Object.entries(EN).map(([k, v]) => [v, k]));
+let lang = 'cs';
+
+function walkText(node, map) {
+  if (node.nodeType === 3) {
+    const t = node.nodeValue.trim();
+    if (t && map[t]) node.nodeValue = node.nodeValue.replace(t, map[t]);
+    return;
+  }
+  if (node.nodeType !== 1 || /^(SCRIPT|STYLE)$/.test(node.tagName)) return;
+  if (node.hasAttribute && node.hasAttribute('placeholder')) {
+    const p = node.getAttribute('placeholder');
+    if (map[p]) node.setAttribute('placeholder', map[p]);
+  }
+  node.childNodes.forEach(c => walkText(c, map));
+}
+
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+  const to = b.dataset.lang;
+  if (to === lang) return;
+  walkText(document.body, to === 'en' ? EN : CS);
+  document.documentElement.lang = to;
+  lang = to;
+  document.querySelectorAll('.lang button').forEach(x => x.classList.toggle('on', x.dataset.lang === to));
+}));
 </script>
 </body>
 </html>
